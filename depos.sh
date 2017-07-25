@@ -16,7 +16,7 @@ apt-get install -y subversion build-essential bcc iasl xsltproc uuid-dev zlib1g-
                 libxmu-dev mesa-common-dev libglu1-mesa-dev \
                 linux-libc-dev libcurl4-openssl-dev libpam0g-dev \
                 libxrandr-dev libxinerama-dev libqt5opengl5-dev makeself \
-                libdevmapper-dev default-jdk texlive-latex-base \
+                libdevmapper-dev default-jdk texlive-latex-base kbuild \
                 texlive-latex-extra texlive-latex-recommended \
                 texlive-fonts-extra texlive-fonts-recommended \
                 lib32ncurses5 lib32z1 libc6-dev-i386 lib32gcc1 gcc-multilib \
