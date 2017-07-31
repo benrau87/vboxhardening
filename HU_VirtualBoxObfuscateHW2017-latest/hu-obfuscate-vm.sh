@@ -32,6 +32,20 @@
 
 # usage: obfuscate.sh"
 
+RANGE=255
+number=$RANDOM
+numbera=$RANDOM
+numberb=$RANDOM
+let "number %= $RANGE"
+let "numbera %= $RANGE"
+let "numberb %= $RANGE"
+octets='0019eC'
+octeta=`echo "obase=16;$number" | bc`
+octetb=`echo "obase=16;$numbera" | bc`
+octetc=`echo "obase=16;$numberb" | bc`
+MACADD="${octets}${octeta}${octetb}${octetc}"
+
+
 echo "This script is patching an existing VirtualBox VM. It obfuscates a couple of HW strings"
 echo "Make sure the VM and VirtualBox App is closed before you execute this script"
 
@@ -124,7 +138,7 @@ $VBOXMAN setextradata "$VMNAME" "VBoxInternal/Devices/vga/0/Config/BiosRom" $VID
 $VBOXMAN setextradata "$VMNAME" "VBoxInternal/Devices/pcbios/0/Config/BiosRom" $PCBIOS
 $VBOXMAN setextradata "$VMNAME" "VBoxInternal/Devices/pcbios/0/Config/LanBootRom" $PXE
 
-$VBOXMAN modifyvm "$VMNAME" --macaddress1 6CF1481A9E03			# change MAC of virtual NIC
+$VBOXMAN modifyvm "$VMNAME" --macaddress1 $MACADD			# change MAC of virtual NIC
 #$VBOXMAN modifyvm "$VMNAME" --bioslogoimagepath $SPLASH		# DOES NOT WORK anymore, dunno what Orcale has changed
 $VBOXMAN modifyvm "$VMNAME" --paravirtprovider legacy			# avoid idetection by cpuid check
 
