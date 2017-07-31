@@ -57,7 +57,7 @@ fi
 
 echo "Start patching, pls wait...."
 
-VBODIR="/home/talos/sources/HU_VirtualBoxObfuscateHW2017"
+VBODIR=$PWD
 
 SLIC="$VBODIR/vbox-obfuscator-data/SLIC.bin"
 DSDT="$VBODIR/vbox-obfuscator-data/ACPI-DSDT.bin"
