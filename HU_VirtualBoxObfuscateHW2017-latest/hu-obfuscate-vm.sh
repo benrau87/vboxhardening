@@ -83,7 +83,7 @@ PXE="$VBODIR/vbox-obfuscator-data/pxerom.bin"
 ACPIDSDT="$VBODIR/vbox-obfuscator-data/ACPI-DSDT-new.bin"
 ACPISSDT="$VBODIR/vbox-obfuscator-data/ACPI-SSDT1-new.bin"
 
-VBOXMAN="/usr/local/bin/VBoxManage"
+VBOXMAN="/usr/bin/VBoxManage"
 
 $VBOXMAN setextradata "$VMNAME" "VBoxInternal/Devices/ahci/0/Config/Port0/SerialNumber"     "K30GT7B25GKD"
 $VBOXMAN setextradata "$VMNAME" "VBoxInternal/Devices/ahci/0/Config/Port0/FirmwareRevision" "0000001A"
